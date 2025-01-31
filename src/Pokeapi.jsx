@@ -1,11 +1,12 @@
 import { useState } from "react";
 import "./index.css";
 import { PokeCards } from "./PokeCards";
-import { useFetchApiData } from "./FetchApiData"; // Corrected import
+import { useFetchApiData } from "./FetchApiData";
 import { ErrorHandling } from "./ErrorHandling";
+// import logo from "./assets/pokemon-logo.png"; // Import the logo image
 
 export const Pokeapi = () => {
-  const API = "https://pokeapi.co/api/v2/pokemon?limit=151";
+  const API = "https://pokeapi.co/api/v2/pokemon?limit=451";
   const { pokemon, loading, error } = useFetchApiData(API);
 
   const [search, setSearch] = useState("");
@@ -17,11 +18,12 @@ export const Pokeapi = () => {
   return (
     <>
       <section className="container">
-        <header>
+        
+         
           <h1>
             Welcome to my <span className="pokedex">Pokedex</span>
           </h1>
-        </header>
+        
 
         <ErrorHandling loading={loading} error={error} />
 

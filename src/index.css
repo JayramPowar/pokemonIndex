@@ -11,7 +11,8 @@ html {
 
 body {
   width: 100%;
-  background-color: #eff3ff;
+  /* background-color: #eff3ff; */
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 
 h1,
@@ -24,6 +25,7 @@ h6 {
 }
 
 h1 {
+  margin-top: 3rem;
   font-size: 5.4rem;
   font-weight: bold;
   color: #000 !important;
@@ -32,7 +34,6 @@ h1 {
 
 .pokedex{
   font-weight: 900;
-
   font-size: 5.4rem;
   font-weight: bold;
   color: #000 !important;
@@ -86,8 +87,9 @@ header {
   }
 }
 
-input[type="text"] {
-  appearance: none;
+
+ input[type="text"] {
+  /* appearance: none; */
   border: none;
   outline: none;
   width: 32rem;
@@ -97,6 +99,10 @@ input[type="text"] {
   padding: 0.8em;
   font-size: 1.6rem;
   color: #000000;
+
+  &hover{
+    
+  }
 }
 
 .cards {
@@ -116,33 +122,42 @@ input[type="text"] {
   border-radius: 0.2rem;
   padding: 1.6rem;
   position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  perspective: 1000px;
+  
+}
+.pokemon-card {
+  width: 36rem;
+  min-height: 42rem;
+  
+  position: relative;
+  
 }
 
-.pokemon-card::before {
-  content: "";
+/* Animated Rising Glob */
+.pokemon-hover-bg {
   position: absolute;
-  top: 0;
+  top: -50%; /* Initially hidden */
   left: 0;
   width: 100%;
-  height: 40%;
-  transform: rotate(180deg);
-  background-color: #ebfbf1;
-  border-radius: 50% 50% 100% 0% / 99% 100% 0% 1%;
-  z-index: 0;
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  transition: transform 0.3s, box-shadow 0.3s;
+  height: 60%;
+  background-color: var(--type-color);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.5s ease-out, top 0.5s ease-out;
+  z-index: -1;
 }
 
-.pokemon-card:hover::before {
-
-  transition: all 0.3s;
-
+/* Hover Effect */
+.pokemon-card:hover .pokemon-hover-bg {
+  top: -10%; /* Moves down */
+  transform: scale(1.5);
 }
 
 .pokemon-card:hover {
   transform: scale(1.03);
   transition: all 0.3s;
-
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
@@ -152,13 +167,20 @@ figure {
   filter: drop-shadow(0px 50px 100px rgba(50, 50, 93, 0.25));
 }
 
+
+
 .pokemon-name {
+  font-family: 'Luckiest Guy', cursive;
   font-size: 3.2rem;
   text-align: center;
-  color: #000;
-  text-transform: capitalize;
   margin-top: 2.4rem;
+  text-transform: capitalize;
+  color: #333; 
+  position: relative;
+  z-index: 2; 
+  transition: color 0.3s ease-in-out;
 }
+
 
 .pokemon-highlight {
   display: flex;
@@ -179,10 +201,12 @@ figure {
 
 .pokemon-image {
   width: 60%;
-  height: 15rem;
+  height: 20rem;
 }
 
 pokemon-info {
+  font-family: "Orbitron-bold", sans-serif;
+  font-size: 1.6rem;
   text-align: center;
 }
 
@@ -203,3 +227,35 @@ pokemon-info {
     cursor: pointer;
   }
 }
+
+.pokemon-types {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1.6rem 0;
+}
+
+.pokemon-type {
+  font-family: 'Press_Start_2P', sans-serif;
+  /* font-size: larger; */
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  font-size: 1.9rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: capitalize;
+  border-radius: 2rem;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pokemon-type:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
