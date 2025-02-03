@@ -3,7 +3,6 @@ import "./index.css";
 import { PokeCards } from "./PokeCards";
 import { useFetchApiData } from "./FetchApiData";
 import { ErrorHandling } from "./ErrorHandling";
-// import logo from "./assets/pokemon-logo.png"; // Import the logo image
 
 export const Pokeapi = () => {
   const API = "https://pokeapi.co/api/v2/pokemon?limit=451";

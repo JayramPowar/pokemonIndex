@@ -1,6 +1,9 @@
+import {Loader} from "./components/Loader";
 export const ErrorHandling = ({ loading, error }) => {
     if (loading) {
-      return <h1>Loading...</h1>;
+      return (
+        <Loader />
+      );
     }
   
     if (error) {
