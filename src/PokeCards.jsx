@@ -40,7 +40,6 @@ export const PokeCards = ({ pokemonData }) => {
       </figure>
 
       <h1 className="pokemon-name">{pokemonData.name}</h1>
-
       
       <div className="pokemon-types">
         {pokemonData.types.map((curType, index) => (
@@ -57,10 +56,10 @@ export const PokeCards = ({ pokemonData }) => {
       
       <div className="grid-three-cols">
         <p className="pokemon-info">
-          <span>Height:</span> {pokemonData.height}
+          <span>Height:</span> {pokemonData.height/10}m
         </p>
         <p className="pokemon-info">
-          <span>Weight:</span> {pokemonData.weight}
+          <span>Weight:</span> {pokemonData.weight/10}
         </p>
         <p className="pokemon-info">
           <span>Speed:</span> {pokemonData.stats[5].base_stat}

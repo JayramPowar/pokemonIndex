@@ -1,4 +1,4 @@
-import { useState } from "react";
+ import { useState } from "react";
 import "./index.css";
 import { PokeCards } from "./PokeCards";
 import { useFetchApiData } from "./FetchApiData";
@@ -17,13 +17,10 @@ export const Pokeapi = () => {
   return (
     <>
       <section className="container">
-        
-         
           <h1>
             Welcome to my <span className="pokedex">Pokedex</span>
           </h1>
         
-
         <ErrorHandling loading={loading} error={error} />
 
         {!loading && !error && (

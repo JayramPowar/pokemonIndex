@@ -9,18 +9,19 @@ export const useFetchApiData = (API) => {
     try {
       const res = await fetch(API);
       const data = await res.json();
-
+      // console.log(data);
+      
       const detailsPokemonData = data.results.map(async (curPokemon) => {
         const res = await fetch(curPokemon.url);
+        // console.log(res);  
         const data = await res.json();
-        // console.log(data);
-        
+        // console.log(data);    
         return data;
       });
 
       const detailedResponse = await Promise.all(detailsPokemonData);
       setPokemon(detailedResponse);
-      console.log(detailedResponse);
+      console.log(detailedResponse); 
       
       setLoading(false);
     } catch (err) {
