@@ -82,6 +82,7 @@ export const Pokeapi = () => {
       return prevPage + 1;
     });
   };
+  
 
   const handlePageJump = (e) => {
     e.preventDefault();
